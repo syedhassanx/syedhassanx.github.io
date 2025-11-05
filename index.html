@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hafiz Syed Hassan Nadeem - Personal Portfolio</title>
+
+  <!-- Google Font: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg-color: #0b0f19;
+      --surface-color: #1a1f2b;
+      --primary-color: #4a69e2;
+      --accent-color: #8a4ae2;
+      --text-color: #e0e7ff;
+      --text-secondary: #94a3b8;
+      --font-family: "Inter", sans-serif;
+      --header-height: 70px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--text-color);
+      position: relative;
+    }
+
+    h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 4px;
+      background-color: var(--primary-color);
+      border-radius: 2px;
+      margin: 10px auto 0;
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      color: var(--accent-color);
+    }
+
+    section {
+      padding: 80px 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 5%;
+      height: var(--header-height);
+      background-color: rgba(26, 31, 43, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--text-color);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      font-weight: 600;
+      position: relative;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text-color);
+    }
+
+    #home {
+      min-height: calc(100vh - var(--header-height));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .hero-text {
+      flex: 1.2;
+    }
+
+    .hero-text .welcome {
+      color: var(--primary-color);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .hero-text h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+    }
+
+    .intro {
+      color: var(--text-secondary);
+      margin-bottom: 30px;
+      max-width: 600px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: var(--primary-color);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      border: 2px solid var(--surface-color);
+      background: transparent;
+      color: var(--text-color);
+    }
+
+    .hero-image {
+      flex: 0.8;
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-pic-container {
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 8px solid transparent;
+      background-image: linear-gradient(var(--surface-color), var(--surface-color)),
+        linear-gradient(45deg, var(--primary-color), var(--accent-color));
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+    }
+
+    .profile-pic-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #about p {
+      max-width: 800px;
+      margin: 0 auto;
+      color: var(--text-secondary);
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      background: var(--surface-color);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(74, 105, 226, 0.2);
+    }
+
+    .project-card h3 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .project-card p {
+      color: var(--text-secondary);
+    }
+
+    /* Simplified Contact Section (Form removed) */
+    .contact-container {
+      background: var(--surface-color);
+      padding: 40px;
+      border-radius: 12px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    .contact-info p {
+      color: var(--text-secondary);
+      margin-bottom: 30px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .contact-item .icon {
+      width: 24px;
+      height: 24px;
+      color: var(--primary-color);
+    }
+
+    .contact-item span {
+      color: var(--text-secondary);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 5%;
+      background-color: var(--surface-color);
+      margin-top: 80px;
+      border-top: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    footer p {
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Hafiz Syed Hassan Nadeem</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home">
+      <div class="hero-text">
+        <span class="welcome">ASSALAMUALAIKUM</span>
+        <h1>Hi, I'm Hafiz Syed Hassan Nadeem</h1>
+        <p class="intro">
+          Software Engineering Student & Educator specializing in Math, Computer Science, and Islamic Studies.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">My Projects</a>
+          <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="profile-pic-container">
+          <img src="./assets/img/123.jpeg" alt="Profile picture" />
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        Assalamualaikum, my name is Hafiz Syed Hassan. I am pursuing BS in Software Engineering and have over 3 years of teaching experience. I’ve worked as Team Leader at RJ BPO Solutions and Senior Agent at CallifyHub. Passionate about teaching Math, Computer Science, and Islamic Studies.
+      </p>
+    </section>
+
+    <section id="projects">
+      <h2>My Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Mart Management System</h3>
+          <p>Developed a system to manage retail operations including sales and inventory.</p>
+        </div>
+        <div class="project-card">
+          <h3>Inventory Management System</h3>
+          <p>Created a tool to track stock levels and product reports efficiently.</p>
+        </div>
+        <div class="project-card">
+          <h3>Financial Management System</h3>
+          <p>Web app using React & Supabase for real-time budgeting and expense tracking.</p>
+        </div>
+        <div class="project-card">
+          <h3>AI Resume Analyzer</h3>
+          <p>AI-powered tool to extract and evaluate resume data for improvement insights.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Get in Touch</h2>
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <p>Feel free to reach out to me via email or phone.</p>
+
+          <div class="contact-item">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l-7 3.79c-.7.38-1.203-.09-1.055-.815l2.15-6.68z"/>
+            </svg>
+            <span><a href="mailto:syedhassan38820@gmail.com">syedhassan38820@gmail.com</a></span>
+          </div>
+
+          <div class="contact-item">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.24.2 2.45.57 3.57.11.35.02.74-.24 1.02l-2.2 2.2z"/>
+            </svg>
+            <span><a href="tel:03104594972">03104594972</a></span>
+          </div>
+
+          <div class="contact-item">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
+            </svg>
+            <span>Orangi Town, Karachi</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Hafiz Syed Hassan Nadeem. All rights reserved.</p>
+  </footer>
+</body>
+</html>
